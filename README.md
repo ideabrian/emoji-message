@@ -1,4 +1,4 @@
-# Emoji + Message
+# Moji + Message
 
 A fun and interactive messaging application built with React and Vite that lets you send messages through ntfy.sh with a playful emoji-based interface.
 
