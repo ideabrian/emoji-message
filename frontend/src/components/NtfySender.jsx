@@ -67,8 +67,8 @@ const NtfyForm = () => {
 
   const emojis = [
     { id: 'duck', symbol: '🦆' },
-    { id: 'peach', symbol: '🍑' },
     { id: 'thumbsup', symbol: '👍' },
+    { id: 'cyclist', symbol: '🚴‍♀️' },
   ];
 
   const handleEmojiClick = (emoji) => {
@@ -101,9 +101,12 @@ const NtfyForm = () => {
 
     try {
       const url = `${server}/${channel}`;
+      // Add emoji flow to message
+      const messageWithEmojis = `${fromEmoji.symbol} → ${toEmoji.symbol}: ${message}`;
+      
       const response = await fetch(url, {
         method: 'POST',
-        body: message
+        body: messageWithEmojis
       });
 
       if (!response.ok) {
@@ -118,14 +121,6 @@ const NtfyForm = () => {
     } finally {
       setLoading(false);
     }
-  };
-
-  const getFetchPreview = () => {
-    const url = `${server}/${channel}`;
-    return `fetch('${url}', {
-  method: 'POST',
-  body: '${message}'
-})`;
   };
 
   const renderEmojiSelection = () => {
