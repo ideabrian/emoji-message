@@ -3,3 +3,6 @@ node_modules
 .env
 error.log
 .vercel
+
+# Local Netlify folder
+.netlify
